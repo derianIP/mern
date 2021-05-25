@@ -1,6 +1,5 @@
 import React from "react";
-import { link } from "react-router-dom";
-
+import { Link } from "react-router-dom";
 import propTypes from "prop-types";
 
 const Button = (props) => {
@@ -25,7 +24,7 @@ const Button = (props) => {
             <span className="sr-only">Loading...</span>
           </>
         ) : (
-          props.childern
+          props.children
         )}
       </span>
     );
@@ -39,27 +38,28 @@ const Button = (props) => {
           className={className.join(" ")}
           style={props.style}
           target={props.target === "_blank" ? "_blank" : undefined}
+          // rel="noopener noreferrer"
           rel={props.target === "_blank" ? "noopener noreferrer" : undefined}
         >
-          {props.childern}
+          {props.children}
         </a>
       );
     } else {
       return (
-        <link
+        <Link
           to={props.href}
           className={className.join(" ")}
           style={props.style}
           onClick={onClick}
         >
-          {props.childern}
-        </link>
+          {props.children}
+        </Link>
       );
     }
   }
   return (
     <Button className={className.join(" ")} style={props.style}>
-      {props.childern}
+      {props.children}
     </Button>
   );
 };
