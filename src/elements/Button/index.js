@@ -38,7 +38,6 @@ const Button = (props) => {
           className={className.join(" ")}
           style={props.style}
           target={props.target === "_blank" ? "_blank" : undefined}
-          // rel="noopener noreferrer"
           rel={props.target === "_blank" ? "noopener noreferrer" : undefined}
         >
           {props.children}
@@ -58,9 +57,9 @@ const Button = (props) => {
     }
   }
   return (
-    <Button className={className.join(" ")} style={props.style}>
+    <button className={className.join(" ")} style={props.style}>
       {props.children}
-    </Button>
+    </button>
   );
 };
 
