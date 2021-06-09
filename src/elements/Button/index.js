@@ -57,7 +57,11 @@ const Button = (props) => {
     }
   }
   return (
-    <button className={className.join(" ")} style={props.style}>
+    <button
+      className={className.join(" ")}
+      style={props.style}
+      onClick={onClick}
+    >
       {props.children}
     </button>
   );

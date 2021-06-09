@@ -11,7 +11,7 @@ import formatNumber from "utils/formatNumber";
 const Hero = (props) => {
   const showMostPick = () => {
     window.scrollTo({
-      to: props.refMostPicked.current.offsetTop - 30,
+      top: props.refMostPicked.current.offsetTop - 30,
       behavior: "smooth",
     });
   };
