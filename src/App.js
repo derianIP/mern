@@ -1,3 +1,4 @@
+import DetailsPage from "pages/DetailsPage";
 import Example from "pages/Example";
 import LandingPage from "pages/LandingPage";
 import React from "react";
@@ -6,8 +7,9 @@ import "./assets/scss/style.scss";
 function App() {
   return (
     <Router>
-      {/* <Route path="/" component={LandingPage}></Route> */}
-      <Route path="/" component={Example}></Route>
+      <Route exact path="/" component={LandingPage}></Route>
+      <Route path="/properties/:id" component={DetailsPage}></Route>
+      <Route path="/example" component={Example}></Route>
     </Router>
   );
 }

@@ -4,8 +4,9 @@ import Button from "elements/Button";
 
 const Breadcrumb = (props) => {
   const className = [props.className];
+  className.push("breadcrumb");
   return (
-    <nav nav-label="breadcrumb">
+    <nav aria-label="breadcrumb">
       <ol className={className.join(" ")}>
         {props.data.map((item, index) => {
           return (
