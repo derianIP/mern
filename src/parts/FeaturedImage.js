@@ -8,12 +8,13 @@ const FeaturedImage = ({ data }) => {
         {data.map((item, index) => {
           return (
             <div
+              key={`featured-image-${index}`}
               className={`item ${index > 0 ? "column-5" : "column-7"} ${
                 index > 0 ? "row-1" : "row-2"
               }`}
             >
               <Fade bottom delay={300 * index}>
-                <div clasName="card h-100">
+                <div className="card h-100">
                   <figure className="img-wrapper">
                     <img className="img-cover" src={item.url} alt={item._id} />
                   </figure>

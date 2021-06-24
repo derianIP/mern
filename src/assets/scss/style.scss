@@ -89,10 +89,6 @@ header {
   }
 }
 
-.card {
-  height: 100%;
-}
-
 section {
   margin-bottom: 70px;
 }
@@ -110,7 +106,10 @@ section {
 }
 
 .card {
-  height: 100%;
+  &.bordered {
+    border: 1px solid $gray-200;
+  }
+  border-radius: 15px;
 
   .tag {
     z-index: 3;
@@ -151,7 +150,7 @@ section {
     overflow: hidden;
     cursor: pointer;
     height: 100%;
-    border-radius: 15px;
+
     &::after {
       position: absolute;
       content: "";

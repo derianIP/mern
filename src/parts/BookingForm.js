@@ -2,8 +2,10 @@ import React, { Component } from "react";
 import propTypes from "prop-types";
 import InputNumber from "elements/Form/InputNumber";
 import InputDate from "elements/Form/InputDate";
+import Button from "elements/Button";
+import { withRouter } from "react-router-dom";
 
-export default class BookingForm extends Component {
+class BookingForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -54,7 +56,7 @@ export default class BookingForm extends Component {
         data: {
           ...this.state.data,
           date: {
-            ...this.state.date,
+            ...this.state.data.date,
             endDate: endDate,
           },
         },
@@ -87,7 +89,30 @@ export default class BookingForm extends Component {
         />
 
         <label htmlFor="date">Pick a date</label>
-        <InputDate onChange={this.updateDate} name="date" value={data.date} />
+        <InputDate onChange={this.updateData} name="date" value={data.date} />
+
+        <h6
+          className="text-gray-500 font-weight-light"
+          style={{ marginBottom: 40 }}
+        >
+          You will pay{" "}
+          <span className="text-gray-900">
+            ${itemDetails.price * data.duration} USD
+          </span>{" "}
+          per{" "}
+          <span className="text-gray-900">
+            {data.duration} {itemDetails.unit}
+          </span>
+        </h6>
+        <Button
+          className="btn"
+          hasShadow
+          isPrimary
+          isBlock
+          onClick={this.startBooking}
+        >
+          Continue to Book
+        </Button>
       </div>
     );
   }
@@ -97,3 +122,5 @@ BookingForm.propTypes = {
   itemDetails: propTypes.object,
   startBooking: propTypes.func,
 };
+
+export default withRouter(BookingForm);
